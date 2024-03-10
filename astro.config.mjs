@@ -4,7 +4,6 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO
-  site: "https://astro-moon-landing.netlify.app/",
+  site: "https://vscodejp.github.io/conference-2024",
   integrations: [tailwind(), icon()],
 });
