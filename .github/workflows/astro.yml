@@ -74,7 +74,7 @@ jobs:
         uses: fifsky/html-to-pdf-action@master
         with:
           htmlFile: ${{ env.BUILD_PATH }}/dist/index.html
-          outputFile: ./pdf/conf2024.pdf
+          outputFile: ./conf2024.pdf
           pdfOptions: '{"format": "A4", "margin": {"top": "10mm", "left": "10mm", "right": "10mm", "bottom": "10mm"}}'
       - name: Upload HTML
         uses: actions/upload-artifact@v4
@@ -85,7 +85,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: PDF
-          path: ./pdf/conf2024.pdf
+          path: ./conf2024.pdf
       # - name: Upload artifact
       #   uses: actions/upload-pages-artifact@v3
       #   with:
