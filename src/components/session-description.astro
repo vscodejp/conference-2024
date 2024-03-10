@@ -1,0 +1,53 @@
+---
+import { Icon } from "astro-icon/components";
+import Modal from "./modal.astro";
+import { createHash } from "crypto";
+import type { Session } from "~/types";
+const { item } = Astro.props;
+---
+
+<Modal
+  id={"id" + createHash("md5").update(item.title).digest("hex")}
+  open={item.title}
+  buttonClass="text-secondary text-wrap ml-4 xl:ml-0 xl:text-nowrap text-left"
+>
+  <main slot="main">
+    <div
+      class="m-4 max-h-[80vh] max-w-[1024px] space-y-4 overflow-y-auto bg-default text-default"
+    >
+      <p class="text-lg">{item.title}</p>
+      <span class="flex text-xl"
+        >{item.speaker.name}
+        {
+          item.speaker?.twitter && (
+            <a
+              target="_blank"
+              class="ml-4 self-center"
+              href={item.speaker?.twitter}
+            >
+              <Icon class="size-6" name="x" />
+            </a>
+          )
+        }</span
+      >
+      {
+        item.speaker?.description && (
+          <>
+            <h4>スピーカー紹介</h4>
+            <hr />
+            <div
+              class="text-sm"
+              set:html={item.speaker.description.replaceAll("\n", "<br>")}
+            />
+          </>
+        )
+      }
+      <h4>セッション詳細</h4>
+      <hr />
+      <div
+        class="text-sm"
+        set:html={(item as Session).description.replaceAll("\n", "<br>")}
+      />
+    </div>
+  </main>
+</Modal>

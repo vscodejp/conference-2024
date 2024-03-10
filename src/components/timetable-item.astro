@@ -1,0 +1,65 @@
+---
+import { Icon } from "astro-icon/components";
+import type { Session, SuponsorSession } from "~/types";
+import Modal from "./modal.astro";
+import SessionDescription from "./session-description.astro";
+import { createHash } from "crypto";
+const { item } = Astro.props;
+---
+
+<div class="relative">
+  <div class="mb-3 flex flex-col space-x-10 xl:flex-row xl:space-x-4">
+    <div class="flex items-center space-x-4 xl:space-x-2 xl:space-x-reverse">
+      <div
+        class="flex h-20 w-20 items-center justify-center rounded-full border-2 border-default bg-offset xl:order-1"
+      >
+        {
+          item.icon ? (
+            <Icon name={item.icon} class="size-10" />
+          ) : (
+            <Icon name="mdi:account-voice" class="size-10" />
+          )
+        }
+      </div>
+      <div>
+        <div class="font-caveat font-medium text-primary text-xl">
+          <time datetime={item.started_at}>{item.started_at}</time>
+        </div>
+        <div
+          class="font-caveat w-28 text-center font-medium text-offset text-sm"
+        >
+          -
+          <time datetime={item.ended_at}>{item.ended_at}</time>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col flex-wrap">
+      {
+        item.speaker?.name ? (
+          <SessionDescription item={item} />
+        ) : (
+          <span class="ml-4 h-full font-bold text-default text-xl xl:py-4">
+            {item.title}
+          </span>
+        )
+      }
+      <div class="flex flex-row">
+        {
+          item.speaker?.name && (
+            <span class="ml-4 text-nowrap font-bold text-default">
+              {item.speaker.name}
+            </span>
+          )
+        }
+      </div>
+    </div>
+  </div>
+  {
+    item.suponsors &&
+      (item as SuponsorSession).suponsors.map((suponsor) => (
+        <div class="m-2 ml-14 rounded border border-slate-500 bg-default p-4 shadow xl:ml-44">
+          <span class="font-bold">{suponsor.speaker.name}</span>
+        </div>
+      ))
+  }
+</div>

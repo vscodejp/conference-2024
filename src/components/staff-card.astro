@@ -1,0 +1,32 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+  staff: CollectionEntry<"staff">;
+}
+
+const { staff } = Astro.props;
+
+const widths = [450, 800];
+---
+
+<a class="group hover:!text-default" href={staff.data.url} target="_blank">
+  <figure class="relative h-full w-full overflow-hidden text-center">
+    <Image
+      class="w-full bg-cover object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20 rounded-full"
+      src={staff.data.image}
+      width="150"
+      alt={`A logo of ${staff.data.url}`}
+    />
+    <figcaption class="absolute inset-0">
+      <div
+        class="flex h-full flex-col items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100"
+      >
+        <Icon name="mdi:open-in-new" class="size-1/2">
+      </div>
+    </figcaption>
+    <span>{staff.data.name}</span>
+  </figure>
+</a>

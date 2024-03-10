@@ -1,0 +1,31 @@
+---
+import Modal from "./modal.astro";
+---
+
+<Modal id="contributorCovenant" open="行動規範" buttonClass="rounded border-2 border-default bg-default p-4 text-center text-default">
+  <main slot="main">
+    <div
+      class="max-h-[80vh] max-w-[720px] space-y-4 overflow-y-auto bg-default p-4"
+    >
+      <h3 class="text-default text-2xl text-center">行動規範</h3>
+      <h4 class="text-default text-xl text-center">
+        コントリビューター行動規範 - Contributor Covenant
+      </h4>
+      <p class="leading-relaxed text-default">
+        本 Meetup や Conference
+        の行動規範として、上記コントリビューター行動規範を採用します。なお、連絡先は各イベントの問い合わせ先を参照ください。connpass
+        の場合は「イベントへのお問い合わせ」からお願いします。
+      </p>
+
+      <p class="leading-relaxed text-default">
+        Contributor Covenant
+        はオープンソースプロジェクトを対象とした行動規範ですが、コントリビューター以外のメンバー（イベント参加者、登壇者、スタッフ、スポンサーなど）もコミュニティの一員として広く適用されるものと考えています。また、行動規範上のコミュニティリーダーは
+        Meetup や Conference のオーガナイザーとして読み替えてください。
+      </p>
+      <p class="leading-relaxed text-default">
+        上記の行動規範に加え、VS Code
+        に関係せず、飲食や勧誘などを主目的とした参加は固くお断りします。その場でご退場いただく、ブラックリストとして登録し以降のイベントへの参加を一切お断りする、他のイベント主催者とも情報を共有するなど、厳しく対応します。また、無断キャンセルも極力控えていただくよう、皆さんのご協力をお願いします！
+      </p>
+    </div>
+  </main>
+</Modal>

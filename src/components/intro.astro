@@ -1,0 +1,21 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+---
+
+<ContentSection title="VS Code Conference JP 2024" id="intro">
+  <Icon slot="eyebrow" name="vscode" class="size-64" />
+  <Fragment slot="lead">
+    VS Code Meetup 主催の年次カンファレンス、<span class="text-primary">VS Code Conference Japan 2024</span>を今年も開催します！！！
+    <span class="text-secondary">Visual Studio Code</span>に興味がある方、<span class="text-secondary">Visual Studio Code</span>を愛している方、我こそはと<span class="text-secondary">Visual Studio Code</span>について語りたい方など、みんなで集まりましょう！！！
+  </Fragment>
+<div class="grid grid-cols-1 gap-1">
+    <a
+      href="https://vscode.connpass.com/event/308890/"
+      class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4"
+    >
+      <Icon name="mdi:ticket-confirmation-outline" class="size-8" />
+      <span>参加を申し込む</span>
+    </a>
+  </div>
+</ContentSection>

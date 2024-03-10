@@ -1,0 +1,47 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { id, open, buttonClass } = Astro.props;
+---
+
+<close-button>
+  <button class={buttonClass} onclick={`window.${id}.showModal()`}
+    >{open}</button
+  >
+
+  <div class="sticky">
+    <dialog
+      id={id}
+      class="fixed items-center justify-center overflow-y-clip rounded bg-default backdrop:backdrop-blur"
+    >
+      <slot name="main" />
+      <hr />
+      <form method="dialog" class="bg-offset">
+        <button
+          class="flex h-full w-full items-center justify-center bg-offset py-3 font-bold text-default" autofocus
+          >閉じる <Icon name="mdi:close" /></button
+        >
+      </form>
+    </dialog>
+  </div>
+</close-button>
+<script>
+  class CloseButton extends HTMLElement {
+    constructor() {
+      super();
+      const dialog = this.querySelector("dialog");
+      dialog?.addEventListener("click", (event) => {
+        const rect = dialog.getBoundingClientRect();
+        const isInDialog =
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width;
+        if (!isInDialog) {
+          dialog.close();
+        }
+      });
+    }
+  }
+  customElements.define("close-button", CloseButton);
+</script>

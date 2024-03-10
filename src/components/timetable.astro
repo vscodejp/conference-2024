@@ -1,0 +1,211 @@
+---
+import type { Session, SuponsorSession, TimeTableItem } from "~/types";
+import ContentSection from "./content-section.astro";
+import TimetableItem from "./timetable-item.astro";
+
+const sessions: Array<TimeTableItem | Session | SuponsorSession> = [
+  {
+    title: "ハンズオン",
+    started_at: "10:00",
+    ended_at: "12:00",
+    icon: "mdi:hand-front-right-outline",
+  },
+  {
+    title: "お昼休憩",
+    started_at: "12:05",
+    ended_at: "12:50",
+    icon: "mdi:clock-minus",
+  },
+  {
+    title: "開幕の挨拶",
+    started_at: "13:00",
+    ended_at: "13:10",
+    icon: "mdi:account-voice",
+  },
+  {
+    title: "【基調講演】Marp for VS Code 拡張機能開発の舞台裏",
+    description: `Marp for VS Code は、プレゼンテーションを Markdown で作成できるオープンソースのエコシステム "Marp" を、VS Code 上で使用できる拡張機能です。
+VS Code の強力なエディタ機能に Marp を統合することで、プレゼンテーション執筆ワークフローの効率化を実現します。
+
+この発表では、 Marp の簡単な概要と、いかにして Marp が VS Code の採用に至ったか、そして実際の拡張機能の設計や、拡張機能開発にあたって注意しているポイントなどを、順を追ってご紹介いたします。`,
+    started_at: "13:10",
+    ended_at: "13:40",
+    speaker: {
+      name: "Yuki Hattori",
+      description: undefined,
+      twitter: "https://x.com/y_hatt",
+    },
+  },
+  {
+    title: "スポンサーセッション",
+    started_at: "13:40",
+    ended_at: "14:25",
+    suponsors: [
+      {
+        speaker: {
+          name: "株式会社CARTA HOLDINGS",
+          twitter: "https://x.com/carta_engineers",
+        },
+      },
+      {
+        speaker: {
+          name: "ペイクラウドホールディングス",
+          link: "https://www.paycloud.inc/",
+        },
+      },
+      {
+        speaker: {
+          name: "株式会社ヒューマンテクノロジーズ／KING OF TIME",
+          link: "https://recruit.h-t.co.jp/",
+        },
+      },
+      {
+        speaker: {
+          name: "Postman",
+          twitter: "https://x.com/postman_japan",
+        },
+      },
+    ],
+  },
+  {
+    title:
+      "GitHub Codeapacesによるポータビリティ性の高い環境構築とスムーズなチーム開発",
+    description: `VS Codeをオンライン上で利用可能なサービスにGitHub Codespacesというものがああります。
+これはGitHubが提供するサービスで、オンライン上でVS Codeのフル機能が利用できます。
+これにより、ローカル環境やマシンスペックの差を意識せず常に同じ環境で開発が可能になります。
+
+内容
+主に以下の内容を実際にGitHub Codespacesを使ってみた経験から話します。
+
+・GitHub Codespacesの概要
+・GitHub Codespacesを用いた環境構築
+・チーム開発にGitHub Codespacesを導入するメリット
+
+対象者
+このセッションの対象となるのは以下のような人になります。
+
+・日常的にVS Codeを利用している人
+・いつでもどこからでもコーディングをしたい人
+・チーム開発をスムーズに行いたい人`,
+    started_at: "14:25",
+    ended_at: "15:00",
+    speaker: {
+      name: "Yuhei FUJITA",
+      description: undefined,
+      twitter: "https://x.com/Yuhei_FUJITA",
+    },
+  },
+  {
+    title:
+      "VS Codeで文字列のちょっとした変換ができるんです！〜実装まで覗くクイックツアー〜",
+    description: `小さなtipsなのですが、VS Codeで文字列のちょっとした変換（すべて小文字にするなど）ができます。
+このちょっとした変換の紹介と、裏でどのように実装されているのかという小話をします。
+VS Codeの実装がちょっとだけ分かったという機会になれば幸いです
+
+聴衆が持ち帰れるもの
+
+・コマンドパレットから起動できる文字列のちょっとした変換
+・文字列のちょっとした変換の実装の裏話（コマンドとは。どのようにクラスを組み合わせて実現しているか）`,
+    started_at: "15:05",
+    ended_at: "15:25",
+    speaker: {
+      name: "nikkie",
+      description: undefined,
+    },
+  },
+  {
+    title:
+      "VS Codeをプロダクトにどう取り込むか　〜VS Code拡張の実装から実際のプロダクトに取り込むまで〜",
+    description: `VS Codeはますますソフトウェア開発のデファクトスタンダードになりつつあります。そんな中で今日のプロダクト開発では、「VS Codeをどのように取り込み開発者の生産性を向上するのか」という課題があると感じています。
+
+本発表では、僕が所属しているLaunchable, inc.にてVS Code拡張の開発を行った経験をもとに、VS Codeをプロダクトに取り込むまでの過程についてお話しさせていただきます。具体的には、アイデアの構想から実際のVS Code拡張の開発、そして実際に取り込んでみての感想に焦点を当てます。VS Codeを活用することでこんなことができるんだ！と発見して頂いたり、自分のプロダクトにもVS Codeを取り込めないか考えるきっかけになるような発表にしたいと思っています。`,
+    started_at: "15:25",
+    ended_at: "16:00",
+    speaker: {
+      name: "小野直人",
+      description: undefined,
+      twitter: "https://x.com/ono_max7",
+    },
+  },
+  {
+    title: "見た目からはじめる生産性向上",
+    description: `VSCodeの見た目の改善について、テーマやフォントを変えるといった以上の改善は趣味の範囲という認識が強いのではないでしょうか。
+たしかに便利な拡張機能を導入したり、ショートカットを覚えたりする方が生産性向上にはつながりやすいです。しかしエディタの見た目が生産性に寄与する部分も馬鹿にはできません。エディタ部分が広ければ広いほど、不要なものが視界に入っていない状況ほど、余計に集中力を損なうことなく開発に集中できるものです。
+見た目は毎日視界に入るからこそ、改善結果も見えやすい場所です。日々の生産性向上のための研鑽をここから始めるのはいかがでしょうか。
+この発表ではまずVSCodeの見た目の概念を整理します。その上でそれぞれどのような設定・拡張機能によって変更ができるのかを示すことで、日々のコーディングの中で改善できるポイントを見つけ出すための視点と、改善のための方法や目次を提供します。`,
+    started_at: "16:00",
+    ended_at: "16:20",
+    speaker: {
+      name: "ikuma-t",
+      description: undefined,
+      twitter: "https://x.com/ikumatdkr",
+    },
+  },
+  {
+    title: "VS CodeでAWSを動かそう",
+    description: `VS Codeには便利な拡張機能が多数あります。
+GitHub Copilot/Copilot Chat、Figma、Postman、その他の拡張機能を適材適所で使用できます。
+これにより、VS Code からほとんど離れることなく、フロントエンドの開発を効率的に行うことができます。
+今回は、最新のアップデートなども踏まえつつ、実際にこれらの拡張機能・ツール等を使って、実際にフロントエンドをどう開発するか、デモを交えながらご紹介します。`,
+    started_at: "16:25",
+    ended_at: "17:00",
+    speaker: {
+      name: "Masaki Suzuki",
+      description: undefined,
+      twitter: "https://x.com/makky12",
+    },
+  },
+  {
+    title: "Biomeの裏側 - VSCode Extension / LSP編",
+    description: `Rust製のWeb Toolchainである<a href="https://github.com/biomejs/biome" target="_blank" class="underline">Biome</a> は、主にJavaScript/TypeScript/JSX/JSON向けのLintとFormatterの機能を提供しています。私が以前発表した<a href="https://speakerdeck.com/unvalley/behind-biome" target="_blank" class="underline">「Biomeの裏側 Parser / Linter編」</a>では、タイトルの通りParserとLinterに焦点を当てました。 本発表では、BiomeがVSCode Extensionとして、どのようにLintやFormatなどの機能を提供しているか、その裏側の処理を解説します。
+Biomeに馴染みのない方でも、一般的なLinterやFormatterがどのようにVSCode拡張上で動いてるか理解できることを目指します。`,
+    started_at: "17:00",
+    ended_at: "17:20",
+    speaker: {
+      name: "unvalley",
+      description: undefined,
+      twitter: "https://x.com/unvalley_",
+    },
+  },
+  {
+    title: "VS Code 拡張機能を活用した AI 駆動フロントエンド開発 - 実践編",
+    description: `VS Codeには便利な拡張機能が多数あります。
+GitHub Copilot/Copilot Chat、Figma、Postman、その他の拡張機能を適材適所で使用できます。
+これにより、VS Code からほとんど離れることなく、フロントエンドの開発を効率的に行うことができます。
+今回は、最新のアップデートなども踏まえつつ、実際にこれらの拡張機能・ツール等を使って、実際にフロントエンドをどう開発するか、デモを交えながらご紹介します。`,
+    started_at: "17:20",
+    ended_at: "17:55",
+    speaker: {
+      name: "鈴木 章太郎",
+      description: undefined,
+      twitter: "https://x.com/shosuz",
+    },
+  },
+  {
+    title: "GitHub Copilot活用、現場の声（経験者）パネルディスカッション！",
+    started_at: "18:00",
+    ended_at: "18:20",
+    icon: "mdi:forum-outline",
+  },
+  {
+    title: "クロージング",
+    started_at: "18:00",
+    ended_at: "18:20",
+    icon: "mdi:close-box",
+  },
+  {
+    title: "懇親会（オフライン会場）",
+    started_at: "18:30",
+    ended_at: "20:00",
+    icon: "mdi:party-popper",
+  },
+];
+---
+
+<ContentSection title="タイムテーブル" id="time-table">
+  <div
+    class="relative w-full max-w-6xl space-y-16 before:absolute before:inset-0 before:ml-5 before:h-full before:w-1 before:translate-x-4 before:bg-gradient-to-b before:from-transparent before:via-slate-500 before:to-transparent xl:w-2/3 xl:before:ml-[9.9rem] xl:before:translate-x-0"
+  >
+    {sessions.map((item) => <TimetableItem item={item} />)}
+  </div>
+</ContentSection>

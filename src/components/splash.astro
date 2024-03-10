@@ -1,0 +1,14 @@
+---
+import HeroImage from "~/components/hero-image.astro";
+import GitHubCorner from "./github-corner.astro";
+
+const widths = [450, 800];
+const sizes = "(min-width: 640px) 42vw, 67vw";
+---
+
+<section class="relative h-full bg-default">
+  <GitHubCorner />
+  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
+    <HeroImage />
+  </div>
+</section>

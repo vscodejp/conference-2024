@@ -1,0 +1,75 @@
+---
+import { Icon } from "astro-icon/components";
+import HeroImage from "~/components/hero-image.astro";
+import CodeForContact from "./code-for-contact.astro";
+import Iframe from "./iframe.astro";
+import Modal from "~/components/modal.astro";
+import type { FooterLink } from "~/types";
+
+const links: Array<FooterLink> = [
+  {
+    url: "https://github.com/vscodejp",
+    description: "GitHub",
+    icon: "fa-brands:github-alt",
+  },
+  {
+    url: "https://discord.gg/y9staKyXEP",
+    description: "Discord",
+    icon: "fa-brands:discord",
+  },
+  {
+    url: "https://x.com/vscodejp",
+    description: "𝕏",
+    icon: "x",
+  },
+  {
+    url: "https://www.youtube.com/@vscodemeetup6795",
+    description: "YouTube",
+    icon: "fa-brands:youtube",
+  },
+  {
+    url: "https://vscode.connpass.com/",
+    description: "connpass",
+    icon: "mdi:ticket-confirmation-outline",
+  },
+];
+---
+
+<footer class="relative flex h-64 flex-col items-center justify-center mb-8 sm:mb-4">
+  <div class="absolute inset-0 overflow-hidden opacity-20">
+    <HeroImage />
+  </div>
+  <ul class="relative grid grid-cols-3 gap-4 sm:grid-cols-5">
+    {
+      links.map((link) => (
+        <li>
+          <a
+            class="flex size-16 items-center justify-center rounded-full border-2 border-default bg-default p-4"
+            href={link.url}
+          >
+            <span class="sr-only">VS Code Meetup on {link.description}</span>
+            <Icon class="size-full" name={link.icon} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <ul class="relative mt-4 grid grid-cols-2 gap-4">
+    <li>
+      <Modal id="dialog" open="問い合わせ" buttonClass="rounded border-2 border-default bg-default p-4 text-center text-default">
+        <main slot="main" >
+          <Iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSd0FbnMaOZeYT0ePjI3md6Z_vu5JHZvSTdBnQ0366HDuAtBaQ/viewform?embedded=true"
+            class="h-[1080px] w-[640px] max-w-full max-h-[80vh] bg-white"
+          />
+        </main>
+      </Modal>
+    </li>
+    <li>
+      <CodeForContact />
+    </li>
+  </ul>
+</footer>
+<span class="text-center text-default text-sm">
+  © 2021-2024 VS Code Meetup
+</span>

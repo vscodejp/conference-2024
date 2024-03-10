@@ -1,0 +1,16 @@
+---
+import { getCollection } from "astro:content";
+import ContentSection from "~/components/content-section.astro";
+import SuponsorCard from "~/components/suponsor-card.astro";
+
+const featuredSites = await getCollection("suponsor");
+const orderedSites = featuredSites.sort(
+  (a, b) => a.data.order! - b.data.order!,
+);
+---
+
+<ContentSection title="企業スポンサー" id="suponsor">
+  <div class="max-w-6xl">
+      {orderedSites.map((site) => <SuponsorCard site={site} />)}
+  </div>
+</ContentSection>

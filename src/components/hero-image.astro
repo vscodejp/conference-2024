@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "~/assets/vscodeconjp2024.svg";
+import heroImageVertical from "~/assets/vscodeconjp2024-vertical.svg";
+
+const widths = [450, 800, 1200];
+const sizes = "100vw";
+---
+
+<Image
+  class="invert-default h-full w-full object-cover hidden lg:block"
+  src={heroImage}
+  widths={widths}
+  sizes={sizes}
+  alt="VSCode conference hero image"
+/>
+<Image
+  class="invert-default h-full w-full object-cover block lg:hidden"
+  src={heroImageVertical}
+  widths={widths}
+  sizes={sizes}
+  alt="VSCode conference hero image"
+/>
