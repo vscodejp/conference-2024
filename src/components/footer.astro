@@ -33,9 +33,21 @@ const links: Array<FooterLink> = [
     icon: "mdi:ticket-confirmation-outline",
   },
 ];
+const pastEvent: Array<FooterLink> = [
+  {
+    url: "https://vscodejp.github.io/conference/2022-2023/ja/",
+    description: "Conference 2022 - 2023",
+  },
+  {
+    url: "https://vscodejp.github.io/conf2021/ja/",
+    description: "Conference 2021",
+  },
+];
 ---
 
-<footer class="relative flex h-64 flex-col items-center justify-center mb-8 sm:mb-4">
+<footer
+  class="relative mb-8 flex h-64 flex-col items-center justify-center sm:mb-4"
+>
   <div class="absolute inset-0 overflow-hidden opacity-20">
     <HeroImage />
   </div>
@@ -46,6 +58,7 @@ const links: Array<FooterLink> = [
           <a
             class="flex size-16 items-center justify-center rounded-full border-2 border-default bg-default p-4"
             href={link.url}
+            target="_blank"
           >
             <span class="sr-only">VS Code Meetup on {link.description}</span>
             <Icon class="size-full" name={link.icon} />
@@ -56,11 +69,15 @@ const links: Array<FooterLink> = [
   </ul>
   <ul class="relative mt-4 grid grid-cols-2 gap-4">
     <li>
-      <Modal id="dialog" open="問い合わせ" buttonClass="rounded border-2 border-default bg-default p-4 text-center text-default">
-        <main slot="main" >
+      <Modal
+        id="dialog"
+        open="問い合わせ"
+        buttonClass="rounded border-2 border-default bg-default p-4 text-center text-default"
+      >
+        <main slot="main">
           <Iframe
             src="https://docs.google.com/forms/d/e/1FAIpQLSd0FbnMaOZeYT0ePjI3md6Z_vu5JHZvSTdBnQ0366HDuAtBaQ/viewform?embedded=true"
-            class="h-[1080px] w-[640px] max-w-full max-h-[80vh] bg-white"
+            class="h-[1080px] max-h-[80vh] w-[640px] max-w-full bg-white"
           />
         </main>
       </Modal>
@@ -68,6 +85,22 @@ const links: Array<FooterLink> = [
     <li>
       <CodeForContact />
     </li>
+  </ul>
+  <ul class="relative grid grid-cols-1 sm:grid-cols-2 my-4">
+    {
+      pastEvent.map((link) => (
+        <li>
+          <a
+            class="flex items-center justify-center "
+            href={link.url}
+            target="_blank"
+          >
+            <span>{link.description}</span>
+            <Icon name="mdi:open-in-new" />
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </footer>
 <span class="text-center text-default text-sm">
