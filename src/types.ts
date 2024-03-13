@@ -1,3 +1,5 @@
+import type { ImageMetadata } from "astro";
+
 export interface FooterLink {
   description: string;
   icon?: string;
@@ -37,4 +39,5 @@ export interface Speaker {
   description?: string;
   twitter?: string;
   link?: string;
+  image?: ImageMetadata
 }

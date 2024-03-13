@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import type { Session, SuponsorSession } from "~/types";
 import Modal from "./modal.astro";
@@ -14,7 +15,13 @@ const { item } = Astro.props;
         class="flex h-20 w-20 items-center justify-center rounded-full border-2 border-default bg-offset xl:order-1"
       >
         {
-          item.icon ? (
+          item.speaker?.image ? (
+            <Image
+              src={item.speaker.image as ImageMetadata}
+              class="rounded-full"
+              alt={item.speaker.name}
+            />
+          ) : item.icon ? (
             <Icon name={item.icon} class="size-10" />
           ) : (
             <Icon name="mdi:account-voice" class="size-10" />

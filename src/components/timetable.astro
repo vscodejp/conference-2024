@@ -2,6 +2,8 @@
 import type { Session, SuponsorSession, TimeTableItem } from "~/types";
 import ContentSection from "./content-section.astro";
 import TimetableItem from "./timetable-item.astro";
+import onoImage from "../assets/speaker/ono.jpg";
+import makkyImage from "../assets/speaker/makky.jpg";
 
 const sessions: Array<TimeTableItem | Session | SuponsorSession> = [
   {
@@ -123,8 +125,9 @@ VS Codeの実装がちょっとだけ分かったという機会になれば幸�
     ended_at: "16:00",
     speaker: {
       name: "小野直人",
-      description: undefined,
+      description: `大学在学時から Ruby の標準ライブラリであるデバッガーの開発に関わり、VS Code extension の機能開発なども行う。2023 年に Launchable, Inc でソフトウェアエンジニアとして入社し、バックエンドを中心にソフトウェア開発に従事している。`,
       twitter: "https://x.com/ono_max7",
+      image: onoImage,
     },
   },
   {
@@ -142,7 +145,7 @@ VS Codeの実装がちょっとだけ分かったという機会になれば幸�
     },
   },
   {
-    title: "VS CodeでAWSを動かそう",
+    title: "VS CodeでAWSを操作しよう",
     description: `VS Codeには便利な拡張機能が多数あります。
 GitHub Copilot/Copilot Chat、Figma、Postman、その他の拡張機能を適材適所で使用できます。
 これにより、VS Code からほとんど離れることなく、フロントエンドの開発を効率的に行うことができます。
@@ -151,8 +154,15 @@ GitHub Copilot/Copilot Chat、Figma、Postman、その他の拡張機能を適�
     ended_at: "17:00",
     speaker: {
       name: "Masaki Suzuki",
-      description: undefined,
+      description: `株式会社DeNAで、Mobageバックエンドチームのクラウドアーキテクトを行っています。
+主にAWSに関する業務に携わっており、中でもサーバーレスやAWS CDKなどのIaC(Infrastructure as Code)に興味を持っています。
+
+普段の業務では、AWS Lambdaのコーディング、AWS CDKでのインフラ定義、及びGitHub Actions作成などでVS Codeを使用しています。
+
+また、AWS関連コミュニティでの活動（発表・参加）を積極的に行っており、主にJAWS-UG CDK支部、及びJAWS-UG 名古屋支部で活動しております。
+その他、2023年8月にAWS Community Builder(Serverless)に認定されました。`,
       twitter: "https://x.com/makky12",
+      image: makkyImage,
     },
   },
   {
