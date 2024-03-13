@@ -24,9 +24,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-env:
-  BUILD_PATH: "." # default value when not using subfolders
-  # BUILD_PATH: subfolder
 
 jobs:
   build:
@@ -40,23 +37,19 @@ jobs:
       - name: html to pdf
         uses: fifsky/html-to-pdf-action@master
         with:
-          htmlFile: ${{ env.BUILD_PATH }}/dist/index.html
-          outputFile: ./conf2024.pdf
+          htmlFile: ./dist/index.html
+          outputFile: ./vscode-conf2024.pdf
           pdfOptions: '{"format": "A4", "margin": {"top": "10mm", "left": "10mm", "right": "10mm", "bottom": "10mm"}}'
       - name: Upload HTML
         uses: actions/upload-artifact@v4
         with:
           name: HTML
-          path: ${{ env.BUILD_PATH }}/dist
-      - name: Upload PDF
-        uses: actions/upload-artifact@v4
-        with:
-          name: PDF
-          path: ./conf2024.pdf
+          path: ./dist
+
       # - name: Upload artifact
       #   uses: actions/upload-pages-artifact@v3
       #   with:
-      #     path: ${{ env.BUILD_PATH }}/dist
+      #     path: ./dist
 
   # deploy:
   #   environment:
