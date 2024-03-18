@@ -24,41 +24,31 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4      
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
       - name: Install, build, and upload your site
         uses: withastro/action@v1
-      - name: html to pdf
-        uses: fifsky/html-to-pdf-action@master
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          htmlFile: ./dist/index.html
-          outputFile: ./vscode-conf2024.pdf
-          pdfOptions: '{"format": "A4", "margin": {"top": "10mm", "left": "10mm", "right": "10mm", "bottom": "10mm"}}'
-      - name: Upload HTML
-        uses: actions/upload-artifact@v4
-        with:
-          name: HTML
           path: ./dist
 
-      # - name: Upload artifact
-      #   uses: actions/upload-pages-artifact@v3
-      #   with:
-      #     path: ./dist
-
-  # deploy:
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   name: Deploy
-  #   steps:
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v4
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
