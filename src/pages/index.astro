@@ -11,29 +11,35 @@ import "~/styles/index.css";
 import Suponsor from "~/components/suponsor.astro";
 
 const { generator, site } = Astro;
-const image = new URL("social.jpg", site);
-const description =
-  "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
+const description = "VS Code Conference Japan 2024 - 2024/04/20 Sat.";
+const title = "VS Code Conference Japan 2024";
 ---
 
 <!doctype html>
-<html lang="jp" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+<html
+  lang="jp"
+  class="h-full motion-safe:scroll-smooth"
+  data-theme="dark"
+  prefix="og: http://ogp.me/ns#"
+>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <meta name="generator" content={generator} />
 
-    <title>VS Code Conference Japan 2024</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
 
     <!-- social media -->
-    <meta property="og:title" content="Astro" />
+    <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content="social.png" />
     <meta property="og:url" content={site} />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@vscodejp" />
+    <meta name="twitter:creator" content="@vscodejp" />
 
     <!-- initialize theme -->
     <script is:inline>
