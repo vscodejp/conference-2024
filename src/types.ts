@@ -16,6 +16,7 @@ export interface TimeTableItem {
   started_at: string;
   ended_at: string;
   icon?: string;
+  description?: string;
 }
 export interface SuponsorSessionItem  {
   speaker: Speaker;
@@ -27,7 +28,6 @@ export interface SuponsorSession extends TimeTableItem {
 }
 
 export interface Session extends TimeTableItem {
-  description: string;
   speaker?: Speaker;
   documentUrl?: string;
   movieUrl?: string;

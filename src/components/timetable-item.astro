@@ -45,9 +45,10 @@ const { item } = Astro.props;
         item.speaker?.name ? (
           <SessionDescription item={item} />
         ) : (
-          <span class="ml-4 h-full font-bold text-default text-xl xl:py-4">
-            {item.title}
-          </span>
+          <div class="ml-4 flex h-full flex-row flex-wrap text-default xl:py-4">
+            <span class="font-bold text-xl ">{item.title}</span>
+            <span>{item.description}</span>
+          </div>
         )
       }
       <div class="flex flex-row">
