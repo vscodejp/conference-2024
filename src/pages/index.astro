@@ -14,13 +14,9 @@ import path from "path";
 const { generator, site } = Astro;
 const description = "VS Code Conference Japan 2024 - 2024/04/20 Sat.";
 const title = "VS Code Conference Japan 2024";
-const url = new URL(
-  import.meta.env.BASE_URL,
-  site?.toString() ?? "localhost:4321",
-);
+const url = new URL("https://vscodejp.github.io/conference-2024/");
 const socialImageUrl = new URL(
-  path.join(import.meta.env.BASE_URL, "social.png"),
-  site?.toString() ?? "localhost:4321",
+  "https://vscodejp.github.io/conference-2024/social.png",
 );
 ---
 
