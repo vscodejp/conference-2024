@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import ContentSection from "~/components/content-section.astro";
+import SuponsorCard from "~/components/supporter-card.astro";
+
+const supporters = await getCollection("supporter");
+---
+
+<ContentSection title="サポーター" id="supporter">
+    <div class="max-w-6xl">
+        <div class="grid grid-cols-3 gap-10 md:grid-cols-6">
+            {
+                supporters.map((supporter) => (
+                    <SuponsorCard supporter={supporter} />
+                ))
+            }
+        </div>
+    </div>
+</ContentSection>

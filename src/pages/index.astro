@@ -9,7 +9,8 @@ import Splash from "~/components/splash.astro";
 import Timetable from "~/components/timetable.astro";
 import "~/styles/index.css";
 import Suponsor from "~/components/suponsor.astro";
-import path from "path";
+import Supporter from "~/components/supporter.astro"
+
 
 const { generator, site } = Astro;
 const description = "VS Code Conference Japan 2024 - 2024/04/20 Sat.";
@@ -81,6 +82,7 @@ const socialImageUrl = new URL(
       <Timetable />
       <Suponsor />
       <Staff />
+      <Supporter />
     </div>
     <Footer />
   </body>
