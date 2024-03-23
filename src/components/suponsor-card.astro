@@ -13,7 +13,7 @@ const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
 ---
 
 <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 my-14">
-  <a class="group hover:!text-default" href={site.data.url} target="_blank">
+  <a class="group hover:!text-default" href={site.data.url} target="_blank" aria-label={`A link of ${site.data.title}`}>
     
     <h3 class="font-extrabold text-l">
       {site.data.title}
@@ -24,7 +24,7 @@ const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
         src={site.data.image}
         widths={widths}
         sizes={sizes}
-        alt={`A logo of ${site.data.url}`}
+        alt={`A logo of ${site.data.title}`}
       />
       <figcaption class="absolute inset-0">
         <div
