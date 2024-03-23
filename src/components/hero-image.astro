@@ -8,16 +8,20 @@ const sizes = "100vw";
 ---
 
 <Image
-  class="invert-default h-full w-full object-cover hidden lg:block"
+  class="hidden h-full w-full object-cover invert-default lg:block"
   src={heroImage}
   widths={widths}
   sizes={sizes}
   alt="VSCode conference hero image"
+  loading="eager"
+  decoding="auto"
 />
 <Image
-  class="invert-default h-full w-full object-cover block lg:hidden"
+  class="block h-full w-full object-cover invert-default lg:hidden"
   src={heroImageVertical}
   widths={widths}
   sizes={sizes}
   alt="VSCode conference hero image"
+  loading="eager"
+  decoding="auto"
 />
