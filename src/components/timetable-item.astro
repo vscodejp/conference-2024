@@ -47,7 +47,7 @@ const { item } = Astro.props;
           <SessionDescriptionForPanel item={item} />
         ) : (
           <div class="ml-4 flex h-full flex-row flex-wrap text-default xl:py-4">
-            <span class="font-bold text-xl ">{item.title}</span>
+            <span class="font-bold text-xl">{item.title}</span>
             <span>{item.description}</span>
           </div>
         )
@@ -67,7 +67,9 @@ const { item } = Astro.props;
     item.suponsors &&
       (item as SuponsorSession).suponsors.map((suponsor) => (
         <div class="m-2 ml-14 rounded border border-slate-500 bg-default p-4 shadow xl:ml-44">
-          <span class="font-bold">{suponsor.speaker.name}</span>
+          <a class="font-bold" href={"#suponsor-" + suponsor.suponsorId}>
+            {suponsor.speaker.name}
+          </a>
         </div>
       ))
   }

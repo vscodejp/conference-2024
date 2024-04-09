@@ -11,11 +11,14 @@ const { site } = Astro.props;
 const widths = [450, 800];
 const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
 ---
-
-<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 my-14">
-  <a class="group hover:!text-default" href={site.data.url} target="_blank" aria-label={`A link of ${site.data.title}`}>
-    
-    <h3 class="font-extrabold text-l">
+<div class="my-14 grid grid-cols-1 gap-4 lg:grid-cols-2">
+  <a
+    class="group hover:!text-default"
+    href={site.data.url}
+    target="_blank"
+    aria-label={`A link of ${site.data.title}`}
+  >
+    <h3 class="text-l font-extrabold scroll-mt-24" id={"suponsor-" + site.data.order}>
       {site.data.title}
     </h3>
     <figure class="relative h-full w-full overflow-hidden">

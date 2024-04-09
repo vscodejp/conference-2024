@@ -9,7 +9,7 @@ const { item } = Astro.props;
 <Modal
   id={"id" + createHash("md5").update(item.title).digest("hex")}
   open={item.title}
-  buttonClass="text-secondary text-wrap ml-4 xl:ml-0 xl:text-nowrap text-left"
+  buttonClass="text-secondary text-wrap ml-4 xl:ml-0 xl:text-nowrap text-left text-xl xl:py-4"
 >
   <main slot="main">
     <div

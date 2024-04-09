@@ -22,6 +22,7 @@ export interface SuponsorSessionItem  {
   speaker: Speaker;
   documentUrl?: string;
   movieUrl?: string;
+  suponsorId: number;
 }
 export interface SuponsorSession extends TimeTableItem {
   suponsors: SuponsorSessionItem[];
