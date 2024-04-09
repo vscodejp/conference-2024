@@ -1,5 +1,10 @@
 ---
-import type { Session, SuponsorSession, TimeTableItem } from "~/types";
+import type {
+  PanelDiscussion,
+  Session,
+  SuponsorSession,
+  TimeTableItem,
+} from "~/types";
 import ContentSection from "./content-section.astro";
 import TimetableItem from "./timetable-item.astro";
 import onoImage from "../assets/speaker/ono.jpg";
@@ -10,8 +15,13 @@ import unvalleyImage from "../assets/speaker/unvalley.jpg";
 import suzukiImage from "../assets/speaker/suzuki.jpg";
 import yukiImage from "../assets/speaker/yuki.jpg";
 import nikkieImage from "../assets/speaker/nikkie.png";
+import horieImage from "../assets/speaker/horie.jpg";
+import morimotoImage from "../content/staff/_images/74th.jpg";
+import kurosakiImage from "../assets/speaker/kurosaki.jpg";
 
-const sessions: Array<TimeTableItem | Session | SuponsorSession> = [
+const sessions: Array<
+  TimeTableItem | Session | SuponsorSession | PanelDiscussion
+> = [
   {
     title: "GitHub CopilotでWebアプリ開発ハンズオン",
     description:
@@ -42,7 +52,8 @@ VS Code の強力なエディタ機能に Marp を統合することで、プレ
     ended_at: "13:40",
     speaker: {
       name: "Yuki Hattori",
-      description: "フロントエンドエンジニア。2021年より、株式会社YAGOにて、オンライン習い事プラットフォームの開発に従事。2015年末より、 Markdown を中心としたオープンソーススライド作成ツール \"Marp\" の開発を開始。現在は、各種ライブラリ、CLI、VS Code 拡張などの関連ツールのメンテナンス、コミュニティのモデレートなどを継続的に行なっている。",
+      description:
+        'フロントエンドエンジニア。2021年より、株式会社YAGOにて、オンライン習い事プラットフォームの開発に従事。2015年末より、 Markdown を中心としたオープンソーススライド作成ツール "Marp" の開発を開始。現在は、各種ライブラリ、CLI、VS Code 拡張などの関連ツールのメンテナンス、コミュニティのモデレートなどを継続的に行なっている。',
       twitter: "https://x.com/y_hatt",
       image: yukiImage,
     },
@@ -122,7 +133,9 @@ VS Codeの実装がちょっとだけ分かったという機会になれば幸�
     ended_at: "15:25",
     speaker: {
       name: "nikkie",
-      description: undefined,
+      description: `ソフトウェアエンジニアリングで突破するデータサイエンティスト。  
+仕事もプライベートもVS CodeでPythonと戯れています。  
+実は本業は仕掛け人🍵、趣味は拡張を作ることです（VS Code拡張やSphinx拡張）`,
       image: nikkieImage,
     },
   },
@@ -151,7 +164,8 @@ VS Codeの実装がちょっとだけ分かったという機会になれば幸�
     ended_at: "16:20",
     speaker: {
       name: "ikuma-t",
-      description: "株式会社エンペイで働くプログラマーです。業務ではTypeScriptをよく書いています。時間を浪費していることをわかりつつも、ツールを調べたりいじったりするのが好きです。",
+      description:
+        "株式会社エンペイで働くプログラマーです。業務ではTypeScriptをよく書いています。時間を浪費していることをわかりつつも、ツールを調べたりいじったりするのが好きです。",
       twitter: "https://x.com/ikumatdkr",
       image: ikumaImage,
     },
@@ -178,13 +192,15 @@ GitHub Copilot/Copilot Chat、Figma、Postman、その他の拡張機能を適�
     },
   },
   {
-    title: "Behind VS Code Extensions for JavaScript/TypeScript Linting and Formatting",
+    title:
+      "Behind VS Code Extensions for JavaScript/TypeScript Linting and Formatting",
     description: `本トークでは、JavaScript/TypeScript の Linter/Formatter として動作する VS Code 拡張の裏側について解説します。発表者は、Rust 製の Web Toolchain である Biome に関わっているため、Biome を主な例とします。Biome に馴染みのない方でも、一般的な Linter や Formatter がどのように VS Code 拡張上で動いてるか理解できることを目指します。`,
     started_at: "17:00",
     ended_at: "17:20",
     speaker: {
       name: "unvalley",
-      description: "A talentless software engineer who writes Rust 🦀 and TypeScript. Biome core member.",
+      description:
+        "A talentless software engineer who writes Rust 🦀 and TypeScript. Biome core member.",
       twitter: "https://x.com/unvalley_",
       image: unvalleyImage,
     },
@@ -199,7 +215,8 @@ GitHub Copilot/Copilot Chat、Figma、Postman、その他の拡張機能を適�
     ended_at: "17:55",
     speaker: {
       name: "鈴木 章太郎",
-      description: undefined,
+      description:
+        "ヴイエムウェア株式会社 ソリューションアーキテクト本部 プリンシパルエンタープライズアーキテクト。マイクロソフトで13年間、テクニカルエバンジェリストとして .NET、Visual Studio、Windows、iOS、Android、Microsoft Azure 等の最新技術啓発活動を実施。その後、デル、アクセンチュア、エラスティックで同様の活動を経て現職。モダンアプリ開発、AI 駆動開発を訴求中。",
       twitter: "https://x.com/shosuz",
       image: suzukiImage,
     },
@@ -209,6 +226,34 @@ GitHub Copilot/Copilot Chat、Figma、Postman、その他の拡張機能を適�
     started_at: "18:00",
     ended_at: "18:20",
     icon: "mdi:forum-outline",
+    description: `注目されているAIペアプログラマーサービスGitHub Copilotですが、使ってみるまではその良さがわからなかったり、使ってみてもちょっと便利程度に留まってしまったりしていませんか？ そこで、実際にGitHub Copilotの利用を活用したり、推進したりしている、コアなGitHub Copilotユーザの話を聴いてみましょう。
+本セッションでは、4人のGitHub Copilotのユーザに登壇いただき、パネルセッション形式でそれぞれの使い方や、その勘所を語っていただきます。漠然と利用しているだけではわからなかったような、GitHub Copilotとの向き合い方を探求していきます！
+本セッションのモデレータ兼登壇者：Atsushi Morimoto (@74th)`,
+    speakers: [
+      {
+        name: "堀江 亮介",
+        description:
+          "新卒でヤフー株式会社に入社。Yahoo!ニュースの開発に関わった後、株式会社VASILYへ転職。その後M&Aに伴い2018年4月に旧ZOZOテクノロジーズに入社。ZOZOへの吸収合併に伴い転籍し現職。ZOZOではZOZOTOWN、WEARおよび新規事業で開発に従事。現在はCTOブロックを軸に社内各プロダクトの開発サポート、組織横断での課題解決、技術広報業務を行なっている。",
+
+        image: horieImage,
+      },
+      {
+        name: "黒崎 優太",
+        description: `新卒で株式会社サイバーエージェントに入社し、AI事業本部にて広告配信プラットフォームのバックエンドエンジニアを経て、現在は小売企業向けのアプリやデータ基盤の開発やセキュリティ関連の業務を担当。兼務にてサイバーエージェント CTO統括室でGitHub Copilot等の全社導入の推進を行う。
+2023年に<a target="_blank" class="underline text-secondary" href="https://developers.cyberagent.co.jp/blog/archives/43059/">「サイバーエージェントのGitHub CopilotのAnalyticsデータを公開！利用開始から約3ヶ月でエンジニアの生産性は向上したのか？」</a>を執筆。`,
+        image: kurosakiImage,
+      },
+      {
+        name: "Atsushi Morimoto（@74th)",
+        description: `GO株式会社所属、インフラよりのデータエンジニア。2024年1月に『改訂新版Visual Studio Code実践ガイド』を出版。VS Code Meetupオーガナイザメンバー。技術同人誌即売会『技術書典』に毎回VS Codeや電子工作関連の新刊を執筆して継続参加中。`,
+        image: morimotoImage,
+      },
+      {
+        name: "YuheiFUJITA",
+        description: "",
+        image: fujitaImage,
+      },
+    ],
   },
   {
     title: "クロージング",

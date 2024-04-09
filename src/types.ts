@@ -26,6 +26,9 @@ export interface SuponsorSessionItem  {
 export interface SuponsorSession extends TimeTableItem {
   suponsors: SuponsorSessionItem[];
 }
+export interface PanelDiscussion extends TimeTableItem {
+  speakers: Speaker[];
+}
 
 export interface Session extends TimeTableItem {
   speaker?: Speaker;

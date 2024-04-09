@@ -1,8 +1,8 @@
 ---
-import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 import Modal from "./modal.astro";
 import { createHash } from "crypto";
-import type { Session } from "~/types";
+import type { Session, Speaker } from "~/types";
 const { item } = Astro.props;
 ---
 
@@ -16,33 +16,7 @@ const { item } = Astro.props;
       class="m-4 max-h-[80vh] max-w-[1024px] space-y-4 overflow-y-auto bg-default text-default"
     >
       <p class="text-lg">{item.title}</p>
-      <span class="flex text-xl"
-        >{item.speaker.name}
-        {
-          item.speaker?.twitter && (
-            <a
-              target="_blank"
-              class="ml-4 self-center"
-              href={item.speaker?.twitter}
-            >
-              <Icon class="size-6" name="x" />
-            </a>
-          )
-        }</span
-      >
-      {
-        item.speaker?.description && (
-          <>
-            <h4>スピーカー紹介</h4>
-            <hr />
-            <div
-              class="text-sm"
-              set:html={item.speaker.description.replaceAll("\n", "<br>")}
-            />
-          </>
-        )
-      }
-      
+
       {
         item.description && (
           <>
@@ -54,6 +28,23 @@ const { item } = Astro.props;
             />
           </>
         )
+      }
+      <h4>登壇者紹介</h4>
+      <hr />
+      {
+        item.speakers.map((speaker: Speaker) => (
+          <div class="flex gap-4">
+            <Image
+              src={speaker.image as ImageMetadata}
+              class="size-16 rounded-full"
+              alt={speaker.name}
+            />
+            <div>
+              <p class="font-bold">{speaker.name}</p>
+              <p class="text-xs" set:html={speaker.description} />
+            </div>
+          </div>
+        ))
       }
     </div>
   </main>

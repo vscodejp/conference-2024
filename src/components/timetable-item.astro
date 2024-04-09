@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import type { SuponsorSession } from "~/types";
 import SessionDescription from "./session-description.astro";
+import SessionDescriptionForPanel from "./session-description-for-panel.astro";
 const { item } = Astro.props;
 ---
 
@@ -42,6 +43,8 @@ const { item } = Astro.props;
       {
         item.speaker?.name ? (
           <SessionDescription item={item} />
+        ) : item.speakers ? (
+          <SessionDescriptionForPanel item={item} />
         ) : (
           <div class="ml-4 flex h-full flex-row flex-wrap text-default xl:py-4">
             <span class="font-bold text-xl ">{item.title}</span>
