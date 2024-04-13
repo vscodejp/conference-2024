@@ -1,22 +1,23 @@
 ---
-import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
 
 export interface Props {
-  staff: CollectionEntry<"staff">;
+  supporter: CollectionEntry<"supporter">;
 }
 
-const { staff } = Astro.props;
+const { supporter } = Astro.props;
+
 ---
 
-<a class="group hover:!text-default" href={staff.data.url} target="_blank" aria-label={`A link of ${staff.data.name}`}>
+<a class="group hover:!text-default" href={supporter.data.url} target="_blank">
   <figure class="relative h-full w-full overflow-hidden text-center">
     <Image
       class="w-full bg-cover object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20 rounded-full"
-      src={staff.data.image}
+      src={supporter.data.image}
       width="150"
-      alt={`A logo of ${staff.data.name}`}
+      alt={`A logo of ${supporter.data.url}`}
     />
     <figcaption class="absolute inset-0">
       <div
@@ -25,6 +26,7 @@ const { staff } = Astro.props;
         <Icon name="mdi:open-in-new" class="size-1/2">
       </div>
     </figcaption>
-    <span>{staff.data.name}</span>
+    <span>{supporter.data.name}</span>
   </figure>
 </a>
+<span class="text-sm col-span-2">{supporter.data.description}</span>

@@ -8,7 +8,7 @@
 You can be launched
 
 ```bash
-npx astro dev --base /
+npx astro dev --base ""
 ```
 
 ## Skills
