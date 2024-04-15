@@ -67,7 +67,10 @@ const { item } = Astro.props;
     item.suponsors &&
       (item as SuponsorSession).suponsors.map((suponsor) => (
         <div class="m-2 ml-14 rounded border border-slate-500 bg-default p-4 shadow xl:ml-44">
-          <a class="font-bold" href={"#suponsor-" + suponsor.suponsorId}>
+          <a
+            class="font-bold text-secondary"
+            href={"#suponsor-" + suponsor.suponsorId}
+          >
             {suponsor.speaker.name}
           </a>
         </div>
