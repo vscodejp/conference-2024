@@ -1,0 +1,16 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import Iframe from "~/components/iframe.astro";
+const mapUrl =
+  "https://www.youtube.com/embed/nWD0EBSMah8?si=0OFxNVa3pk_vXTkV";
+---
+
+<ContentSection title="ライブ配信" id="live-stream">
+  <Iframe src={mapUrl} class="player" title="ライブ配信" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen/>
+</ContentSection>
+<style>
+  .player {
+    width: 80vw;
+    height: 45vw;
+  }
+</style>

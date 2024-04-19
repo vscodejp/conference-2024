@@ -12,6 +12,7 @@ import Suponsor from "~/components/suponsor.astro";
 import Supporter from "~/components/supporter.astro"
 import Attention from "~/components/attention.astro";
 import Concent from "~/components/concent.astro";
+import Youtube from "~/components/youtube.astro";
 
 
 const { generator, site } = Astro;
@@ -80,6 +81,7 @@ const socialImageUrl = new URL(
     <Splash />
     <div class="relative space-y-24 px-8 py-32">
       <Intro />
+      <Youtube />
       <OfflineMap />
       <Timetable />
       <Suponsor />
