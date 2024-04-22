@@ -1,0 +1,35 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { suponsor } = Astro.props;
+console.log(suponsor);
+---
+
+<div
+  class="flow-row m-2 ml-14 flex rounded border border-slate-500 bg-default p-4 shadow xl:ml-44"
+>
+  <a class="font-bold text-secondary" href={"#suponsor-" + suponsor.suponsorId}>
+    {suponsor.speaker.name}
+  </a>
+  {
+    suponsor.documentUrl && (
+      <a
+        class="ml-4 content-center text-primary"
+        href={suponsor.documentUrl}
+        target="_blank"
+      >
+        <span class="sr-only">{suponsor.speaker.name} - slide</span>
+        <Icon name="mdi:presentation-play" />
+      </a>
+    )
+  }
+
+  <a
+    class="ml-4 content-center text-primary"
+    href={suponsor.movieUrl}
+    target="_blank"
+  >
+    <span class="sr-only">{suponsor.speaker.name} - movie</span>
+    <Icon name="fa-brands:youtube" />
+  </a>
+</div>

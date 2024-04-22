@@ -4,6 +4,7 @@ import { Icon } from "astro-icon/components";
 import type { SuponsorSession } from "~/types";
 import SessionDescription from "./session-description.astro";
 import SessionDescriptionForPanel from "./session-description-for-panel.astro";
+import SupponsorItem from "./suponsor-item.astro";
 const { item } = Astro.props;
 ---
 
@@ -60,20 +61,37 @@ const { item } = Astro.props;
             </span>
           )
         }
+        {
+          item.documentUrl && (
+            <a
+              class="ml-4 content-center text-primary"
+              href={item.documentUrl}
+              target="_blank"
+            >
+              <span class="sr-only">{item.title} - slide</span>
+              <Icon name="mdi:presentation-play" />
+            </a>
+          )
+        }
+        {
+          item.movieUrl && item.speaker && (
+            <a
+              class="ml-4 content-center text-primary"
+              href={item.movieUrl}
+              target="_blank"
+            >
+              <span class="sr-only">{item.title} - movie</span>
+              <Icon name="fa-brands:youtube" />
+            </a>
+          )
+        }
       </div>
     </div>
   </div>
   {
     item.suponsors &&
       (item as SuponsorSession).suponsors.map((suponsor) => (
-        <div class="m-2 ml-14 rounded border border-slate-500 bg-default p-4 shadow xl:ml-44">
-          <a
-            class="font-bold text-secondary"
-            href={"#suponsor-" + suponsor.suponsorId}
-          >
-            {suponsor.speaker.name}
-          </a>
-        </div>
+        <SupponsorItem  suponsor={suponsor}/>
       ))
   }
 </div>
