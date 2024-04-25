@@ -20,9 +20,10 @@ export interface TimeTableItem {
 }
 export interface SuponsorSessionItem  {
   speaker: Speaker;
+  title?: string;
   documentUrl?: string;
   movieUrl?: string;
-  suponsorId: number;
+  suponsorId?: number;
 }
 export interface SuponsorSession extends TimeTableItem {
   suponsors: SuponsorSessionItem[];

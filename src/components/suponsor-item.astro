@@ -8,9 +8,34 @@ console.log(suponsor);
 <div
   class="flow-row m-2 ml-14 flex rounded border border-slate-500 bg-default p-4 shadow xl:ml-44"
 >
-  <a class="font-bold text-secondary" href={"#suponsor-" + suponsor.suponsorId}>
-    {suponsor.speaker.name}
-  </a>
+  {
+    suponsor.suponsorId && (
+      <a
+        class="font-bold text-secondary"
+        href={"#suponsor-" + suponsor.suponsorId}
+      >
+        {suponsor.speaker.name}
+      </a>
+    )
+  }
+  {
+    suponsor.title && (
+      <span class="flex text-sm">
+        {suponsor.speaker.name}
+        
+        {" - " + suponsor.title}
+      </span>
+    )
+  }
+  {suponsor.speaker.twitter && (
+    <a
+      target="_blank"
+      class="ml-4 self-center"
+      href={suponsor.speaker.twitter}
+    >
+      <Icon class="" name="x" />
+    </a>
+  )}
   {
     suponsor.documentUrl && (
       <a
